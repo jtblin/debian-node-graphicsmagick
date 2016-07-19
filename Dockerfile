@@ -8,7 +8,9 @@ RUN apt-get install -y \
 	graphicsmagick \
 	git \
 	bzip2 \
+	sudo \
+	build-essential \
 	&& apt-get clean
-RUN groupadd node && useradd -g node node
+RUN groupadd node && useradd -g node node && adduser node sudo
 RUN mkdir -p /home/node && chown -R node:node /home/node
 CMD ["node", "-v"]
